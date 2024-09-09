@@ -34,5 +34,10 @@ namespace ControlesAvanzados
             Form formularioProyecto = new FormularioProyecto();
             formularioProyecto.Show();
         } //Controles
+
+        private void Contenedor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

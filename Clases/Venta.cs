@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ControlesAvanzados.Clases
 {
-    internal class Venta
+    public class Venta
     {
         public int Anio { get; set; }
         public int Mes { get; set; }
-        public string Departamento { get; set; }    
-        public double Ventas { get; set; }  
+        public string Departamento { get; set; }
+        public decimal Ventas { get; set; } 
 
-        public Venta(int anio, int mes, string departamento, double ventas)
+        public Venta(int anio, int mes, string departamento, decimal ventas)
         {
             Anio = anio;
             Mes = mes;

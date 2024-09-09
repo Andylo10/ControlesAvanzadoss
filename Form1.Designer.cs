@@ -46,28 +46,29 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, inicioToolStripMenuItem, vistaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1276, 28);
+            menuStrip1.Padding = new Padding(5, 2, 0, 2);
+            menuStrip1.Size = new Size(1116, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(59, 24);
+            toolStripMenuItem1.Size = new Size(48, 20);
             toolStripMenuItem1.Text = "Inicio";
             // 
             // inicioToolStripMenuItem
             // 
             inicioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevoArchivoToolStripMenuItem, nuevoProyectoToolStripMenuItem });
             inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            inicioToolStripMenuItem.Size = new Size(66, 24);
+            inicioToolStripMenuItem.Size = new Size(54, 20);
             inicioToolStripMenuItem.Text = "Nuevo";
             inicioToolStripMenuItem.Click += inicioToolStripMenuItem_Click;
             // 
             // nuevoArchivoToolStripMenuItem
             // 
             nuevoArchivoToolStripMenuItem.Name = "nuevoArchivoToolStripMenuItem";
-            nuevoArchivoToolStripMenuItem.Size = new Size(197, 26);
+            nuevoArchivoToolStripMenuItem.Size = new Size(159, 22);
             nuevoArchivoToolStripMenuItem.Text = "Nuevo Archivo";
             nuevoArchivoToolStripMenuItem.Click += nuevoArchivoToolStripMenuItem_Click;
             // 
@@ -75,47 +76,49 @@
             // 
             nuevoProyectoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nuevaTareaToolStripMenuItem });
             nuevoProyectoToolStripMenuItem.Name = "nuevoProyectoToolStripMenuItem";
-            nuevoProyectoToolStripMenuItem.Size = new Size(197, 26);
+            nuevoProyectoToolStripMenuItem.Size = new Size(159, 22);
             nuevoProyectoToolStripMenuItem.Text = "Nuevo Proyecto";
             nuevoProyectoToolStripMenuItem.Click += nuevoProyectoToolStripMenuItem_Click;
             // 
             // nuevaTareaToolStripMenuItem
             // 
             nuevaTareaToolStripMenuItem.Name = "nuevaTareaToolStripMenuItem";
-            nuevaTareaToolStripMenuItem.Size = new Size(173, 26);
+            nuevaTareaToolStripMenuItem.Size = new Size(138, 22);
             nuevaTareaToolStripMenuItem.Text = "Nueva Tarea";
             // 
             // vistaToolStripMenuItem
             // 
             vistaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { horizontalToolStripMenuItem, verticalToolStripMenuItem });
             vistaToolStripMenuItem.Name = "vistaToolStripMenuItem";
-            vistaToolStripMenuItem.Size = new Size(55, 24);
+            vistaToolStripMenuItem.Size = new Size(44, 20);
             vistaToolStripMenuItem.Text = "Vista";
             // 
             // horizontalToolStripMenuItem
             // 
             horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
-            horizontalToolStripMenuItem.Size = new Size(162, 26);
+            horizontalToolStripMenuItem.Size = new Size(129, 22);
             horizontalToolStripMenuItem.Text = "Horizontal";
             horizontalToolStripMenuItem.Click += horizontalToolStripMenuItem_Click;
             // 
             // verticalToolStripMenuItem
             // 
             verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
-            verticalToolStripMenuItem.Size = new Size(162, 26);
+            verticalToolStripMenuItem.Size = new Size(129, 22);
             verticalToolStripMenuItem.Text = "Vertical";
             verticalToolStripMenuItem.Click += verticalToolStripMenuItem_Click;
             // 
             // Contenedor
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1276, 567);
+            ClientSize = new Size(1116, 425);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Contenedor";
             Text = "Contenedor";
+            Load += Contenedor_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

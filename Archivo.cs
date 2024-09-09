@@ -1,12 +1,8 @@
 ﻿using ControlesAvanzados.Clases;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ControlesAvanzados
@@ -14,6 +10,7 @@ namespace ControlesAvanzados
     public partial class Archivo : Form
     {
         List<Venta> ventas = new List<Venta>();
+
         public Archivo()
         {
             InitializeComponent();
@@ -25,53 +22,45 @@ namespace ControlesAvanzados
 
         private void agregarVentas()
         {
-            ventas.Add(new Venta(2024, 1, "Guatemala", 100000));
-            ventas.Add(new Venta(2024, 2, "Guatemala", 80000));
-            ventas.Add(new Venta(2024, 3, "Guatemala", 95000));
-            ventas.Add(new Venta(2024, 4, "Guatemala", 120000));
-            ventas.Add(new Venta(2024, 5, "Guatemala", 100000));
-            ventas.Add(new Venta(2024, 6, "Guatemala", 110000));
-            ventas.Add(new Venta(2024, 1, "Jutiapa", 50000));
-            ventas.Add(new Venta(2024, 2, "Jutiapa", 80000));
-            ventas.Add(new Venta(2024, 3, "Jutiapa", 67000));
-            ventas.Add(new Venta(2024, 4, "Jutiapa", 55000));
-            ventas.Add(new Venta(2024, 5, "Jutiapa", 67000));
-            ventas.Add(new Venta(2024, 6, "Jutiapa", 45000));
-            ventas.Add(new Venta(2024, 1, "Chiquimula", 43000));
-            ventas.Add(new Venta(2024, 2, "Chiquimula", 55000));
-            ventas.Add(new Venta(2024, 3, "Chiquimula", 23000));
-            ventas.Add(new Venta(2024, 4, "Chiquimula", 34000));
-            ventas.Add(new Venta(2024, 5, "Chiquimula", 56000));
-            ventas.Add(new Venta(2024, 6, "Chiquimula", 78000));
-            ventas.Add(new Venta(2024, 1, "Escuintla", 86000));
-            ventas.Add(new Venta(2024, 2, "Escuintla", 75000));
-            ventas.Add(new Venta(2024, 3, "Escuintla", 64000));
-            ventas.Add(new Venta(2024, 4, "Escuintla", 78000));
-            ventas.Add(new Venta(2024, 5, "Escuintla", 79000));
-            ventas.Add(new Venta(2024, 6, "Escuintla", 90000));
-            ventas.Add(new Venta(2024, 6, "Zacapa", 10000));
+            ventas.Add(new Venta(2024, 1, "Guatemala", 100000m));
+            ventas.Add(new Venta(2024, 2, "Guatemala", 80000m));
+            ventas.Add(new Venta(2024, 3, "Guatemala", 95000m));
+            ventas.Add(new Venta(2024, 4, "Guatemala", 120000m));
+            ventas.Add(new Venta(2024, 5, "Guatemala", 100000m));
+            ventas.Add(new Venta(2024, 6, "Guatemala", 110000m));
+            ventas.Add(new Venta(2024, 1, "Jutiapa", 50000m));
+            ventas.Add(new Venta(2024, 2, "Jutiapa", 80000m));
+            ventas.Add(new Venta(2024, 3, "Jutiapa", 67000m));
+            ventas.Add(new Venta(2024, 4, "Jutiapa", 55000m));
+            ventas.Add(new Venta(2024, 5, "Jutiapa", 67000m));
+            ventas.Add(new Venta(2024, 6, "Jutiapa", 45000m));
+            ventas.Add(new Venta(2024, 1, "Chiquimula", 43000m));
+            ventas.Add(new Venta(2024, 2, "Chiquimula", 55000m));
+            ventas.Add(new Venta(2024, 3, "Chiquimula", 23000m));
+            ventas.Add(new Venta(2024, 4, "Chiquimula", 34000m));
+            ventas.Add(new Venta(2024, 5, "Chiquimula", 56000m));
+            ventas.Add(new Venta(2024, 6, "Chiquimula", 78000m));
+            ventas.Add(new Venta(2024, 1, "Escuintla", 86000m));
+            ventas.Add(new Venta(2024, 2, "Escuintla", 75000m));
+            ventas.Add(new Venta(2024, 3, "Escuintla", 64000m));
+            ventas.Add(new Venta(2024, 4, "Escuintla", 78000m));
+            ventas.Add(new Venta(2024, 5, "Escuintla", 79000m));
+            ventas.Add(new Venta(2024, 6, "Escuintla", 90000m));
+            ventas.Add(new Venta(2024, 6, "Zacapa", 10000m));
         }
 
         private void mostrarVentas()
         {
             listadoVentas.Controls.Clear();
 
-            /*
-                Where es una función de LINQ que permite filtrar una lista de elementos, ejecuta una función 
-                por cada elemento de la lista y si la función retorna true, el elemento es incluido en la lista resultante.
-                Es útil para filtrar elementos de una lista que cumplan con ciertas condiciones.
-                El formato de las funciones lambda es el siguiente: (elemento) => condición, si quisiera sustituirse podría usarse 
-                una función anónima, con el formato delegate(bool nombreVariable) { return condición; } o una función normal.
-            */
-            
             List<Venta> ventasFiltradas = ventas
                 .Where(venta => selectorDepartamento.SelectedItem == null || selectorDepartamento.SelectedItems.Contains(venta.Departamento))
-                .Where(venta => venta.Anio == (int)comboBoxAnios.SelectedItem) //Una forma de hacer parseo seguro
+                .Where(venta => venta.Anio == (int)comboBoxAnios.SelectedItem)
                 .Where(venta => venta.Mes == comboBoxMeses.SelectedIndex + 1).ToList();
 
             foreach (Venta venta in ventasFiltradas)
             {
-                Label labelVenta = crearEqituetaVenta(venta);
+                Label labelVenta = crearEtiquetaVenta(venta);
                 listadoVentas.Controls.Add(labelVenta);
             }
         }
@@ -135,10 +124,21 @@ namespace ControlesAvanzados
             return meses[numeroMes - 1];
         }
 
-        private Label crearEqituetaVenta(Venta venta)
+        private string FormatearVentas(decimal ventas)
+        {
+            // Crear una cultura personalizada para Guatemala
+            var culturaGuatemala = new CultureInfo("es-GT");
+            // Ajustar el formato para que use puntos para miles y comas para decimales
+            culturaGuatemala.NumberFormat.NumberGroupSeparator = ".";
+            culturaGuatemala.NumberFormat.NumberDecimalSeparator = ",";
+
+            return ventas.ToString("#,##0.00", culturaGuatemala);
+        }
+
+        private Label crearEtiquetaVenta(Venta venta)
         {
             Label labelVenta = new Label();
-            labelVenta.Text = $"Año: {venta.Anio} \n Mes: {venta.Mes} \n Departamento: {venta.Departamento} \n Ventas: Q.{venta.Ventas}";
+            labelVenta.Text = $"Año: {venta.Anio} \n Mes: {obtenerNombreMesPorNumero(venta.Mes)} \n Departamento: {venta.Departamento} \n Ventas: Q.{FormatearVentas(venta.Ventas)}";
             labelVenta.AutoSize = true;
             labelVenta.Font = new Font("Arial", 12, FontStyle.Bold);
             labelVenta.Padding = new Padding(10);
@@ -161,6 +161,11 @@ namespace ControlesAvanzados
         private void comboBoxMeses_SelectedValueChanged(object sender, EventArgs e)
         {
             mostrarVentas();
+        }
+
+        private void Archivo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
